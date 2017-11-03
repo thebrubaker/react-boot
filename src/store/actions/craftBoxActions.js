@@ -1,7 +1,7 @@
-export const SET_MATERIAL = 'SET_MATERIAL';
-export const REMOVE_MATERIAL = 'REMOVE_MATERIAL';
-export const SWAP_MATERIALS = 'SWAP_MATERIALS';
-export const CLEAR_MATERIALS = 'CLEAR_MATERIALS';
+export const SET_MATERIAL = "SET_MATERIAL";
+export const REMOVE_MATERIAL = "REMOVE_MATERIAL";
+export const SWAP_MATERIALS = "SWAP_MATERIALS";
+export const CLEAR_MATERIALS = "CLEAR_MATERIALS";
 
 /**
  * The action creator for setting a material into a specified
@@ -16,8 +16,8 @@ export const setMaterial = (materialId, position) => dispatch => {
       materialId,
       position
     }
-  })
-}
+  });
+};
 
 /**
  * The action creator for removing a material from a specified
@@ -30,8 +30,8 @@ export const removeMaterial = position => dispatch => {
     payload: {
       position
     }
-  })
-}
+  });
+};
 
 /**
  * The action creator for swapping two materials.
@@ -45,8 +45,8 @@ export const swapMaterials = (positionFrom, positionTo) => dispatch => {
       positionFrom,
       positionTo
     }
-  })
-}
+  });
+};
 
 /**
  * The action creator for clear all materials.
@@ -55,5 +55,5 @@ export const clearMaterials = () => dispatch => {
   dispatch({
     type: CLEAR_MATERIALS,
     payload: {}
-  })
-}
+  });
+};
