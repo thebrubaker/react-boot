@@ -1,13 +1,17 @@
-export const PLACE_MATERIAL = 'PLACE_MATERIAL';
+export const SET_MATERIAL = 'SET_MATERIAL';
 export const REMOVE_MATERIAL = 'REMOVE_MATERIAL';
 export const SWAP_MATERIALS = 'SWAP_MATERIALS';
 export const CLEAR_MATERIALS = 'CLEAR_MATERIALS';
-export const SET_MATERIALS = 'SET_MATERIALS';
 
-
-const placeMaterial = (materialId, position) => dispatch => {
+/**
+ * The action creator for setting a material into a specified
+ * position.
+ * @param {*String} materialId The id of the material to move.
+ * @param {*String} position The position to set the material.
+ */
+export const setMaterial = (materialId, position) => dispatch => {
   dispatch({
-    type: PLACE_MATERIAL,
+    type: SET_MATERIAL,
     payload: {
       materialId,
       position
@@ -15,7 +19,12 @@ const placeMaterial = (materialId, position) => dispatch => {
   })
 }
 
-const removeMaterial = position => dispatch => {
+/**
+ * The action creator for removing a material from a specified
+ * position.
+ * @param {*String} position The position to remove.
+ */
+export const removeMaterial = position => dispatch => {
   dispatch({
     type: REMOVE_MATERIAL,
     payload: {
@@ -24,7 +33,12 @@ const removeMaterial = position => dispatch => {
   })
 }
 
-const swapMaterials = (positionFrom, positionTo) => dispatch => {
+/**
+ * The action creator for swapping two materials.
+ * @param {*String} positionFrom The position to move from.
+ * @param {*String} positionTo The position to move to.
+ */
+export const swapMaterials = (positionFrom, positionTo) => dispatch => {
   dispatch({
     type: SWAP_MATERIALS,
     payload: {
@@ -34,18 +48,12 @@ const swapMaterials = (positionFrom, positionTo) => dispatch => {
   })
 }
 
-const clearMaterials = () => dispatch => {
+/**
+ * The action creator for clear all materials.
+ */
+export const clearMaterials = () => dispatch => {
   dispatch({
     type: CLEAR_MATERIALS,
     payload: {}
-  })
-}
-
-const setMaterials = box => dispatch => {
-  dispatch({
-    type: SET_MATERIALS,
-    payload: {
-      box
-    }
   })
 }
