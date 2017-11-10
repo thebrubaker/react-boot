@@ -1,27 +1,22 @@
 import React from 'react';
 import SplashLayout from 'layouts/splash';
 import styled from 'styled-components';
-import image from './assets/table.jpeg';
 import styles from 'config/styles';
 import LinkButton from 'components/buttons/LinkButton';
+import image from './assets/table.jpeg';
 
-class Login extends React.Component {
-  render() {
-    return (
-      <SplashLayout
-        background={{ image, blend: true, color: styles.colors.gradient }}
-        header={true}
-        footer={false}
-      >
-        <Container>
-          <h1>Lorem Ipsum Header</h1>
-          <LinkButton>Find Out More</LinkButton>
-          <LinkButton outline>Explore</LinkButton>
-        </Container>
-      </SplashLayout>
-    );
-  }
-}
+const Login = () => (
+  <SplashLayout
+    background={{ image, blend: true, color: styles.colors.gradient }}
+    footer={false}
+  >
+    <Container>
+      <h1>Lorem Ipsum Header</h1>
+      <LinkButton>Find Out More</LinkButton>
+      <LinkButton outline>Explore</LinkButton>
+    </Container>
+  </SplashLayout>
+);
 
 const Container = styled.div`
   text-align: left;
