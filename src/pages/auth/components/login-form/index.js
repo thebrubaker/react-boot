@@ -93,37 +93,34 @@ class LoginForm extends React.Component {
     const result = Joi.validate(this.formValues, schema, {
       abortEarly: false,
     });
+
     if (!result.error) {
-      return this.setState({
-        email: {
-          ...this.state.email,
-          errors: [],
-        },
-        password: {
-          ...this.state.password,
-          errors: [],
-        },
-      });
+      return this.resetErrors();
     }
-    const errors = result.error.details.map(error => ({
-      key: error.context.key,
-      message: error.message,
-    }));
-    const state = errors.reduce(
-      (carry, error) => ({
-        ...carry,
-        [error.key]: [...(carry[error.key] || []), error.message],
-      }),
-      {},
+
+    return this.setState(
+      result.error.details.reduce(
+        (carry, error) => ({
+          ...carry,
+          [error.context.key]: {
+            ...this.state[error.context.key],
+            errors: [...(carry[error.context.key] || []), error.message],
+          },
+        }),
+        {},
+      ),
     );
-    return this.setState({
+  }
+
+  resetErrors() {
+    this.setState({
       email: {
         ...this.state.email,
-        errors: state.email || [],
+        errors: [],
       },
       password: {
         ...this.state.password,
-        errors: state.password || [],
+        errors: [],
       },
     });
   }
