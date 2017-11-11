@@ -11,6 +11,7 @@ class EmailField extends React.Component {
     errorMessage: PropTypes.string,
     type: PropTypes.string,
     placeholder: PropTypes.string,
+    showError: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -19,12 +20,21 @@ class EmailField extends React.Component {
     errorMessage: '',
     type: 'text',
     placeholder: '',
+    showError: true,
   };
 
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+  }
+
+  get error() {
+    if (!this.props.showError) {
+      return '';
+    }
+
+    return this.props.errorMessage;
   }
 
   handleChange({ target }) {
@@ -50,7 +60,7 @@ class EmailField extends React.Component {
           />
           <span className="underline" />
         </div>
-        <div className="errors-group">{this.props.errorMessage}</div>
+        <div className="errors-group">{this.error}</div>
       </Field>
     );
   }
@@ -73,7 +83,7 @@ const Field = styled.div`
       }
       &::-webkit-input-placeholder {
         color: white;
-        opacity: 0.8;
+        opacity: 0.6;
       }
       &:focus::-webkit-input-placeholder {
         color: ${() => styles.colors.secondary};
@@ -96,7 +106,7 @@ const Field = styled.div`
     }
   }
   .errors-group {
-    color: ${() => styles.colors.error};
+    color: white;
     font-size: 0.8em;
     padding-top: 10px;
   }
