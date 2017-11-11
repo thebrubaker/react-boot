@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import Logo from 'components/logos/header-logo';
 
 const Header = () => (
   <Container>
     <div>
-      <span className="logo">
-        Proto<strong>Type</strong>
-      </span>
+      <Logo />
     </div>
     <div>
       <span>Login</span>
@@ -23,14 +22,6 @@ const Container = styled.header`
   z-index: 1;
   padding: 0 30px;
   align-items: center;
-  .logo {
-    font-weight: 100;
-    letter-spacing: 1px;
-    font-size: 18px;
-    strong {
-      font-weight: 600;
-    }
-  }
 `;
 
 export default Header;

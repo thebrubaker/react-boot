@@ -18,5 +18,6 @@ export default {
     gray: '#666',
     darkGray: '#888',
     gradient: 'linear-gradient(to right, #1f1c2c, #928dab)',
+    error: '#f44343',
   },
 };

@@ -2,13 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from './header';
 
-const SplashLayout = ({
-  children,
-  header = true,
-  footer = true,
-  background = {},
-}) => (
-  <Container
+const SplashLayout = ({ children, header = true, footer = true, background = {} }) => (
+  <Wrapper
     color={background.color}
     image={background.image}
     size={background.size}
@@ -18,10 +13,10 @@ const SplashLayout = ({
     {header && <Header />}
     <main>{children}</main>
     {footer && <footer>Footer</footer>}
-  </Container>
+  </Wrapper>
 );
 
-const Container = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;

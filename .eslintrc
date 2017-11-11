@@ -1,9 +1,9 @@
 {
   "parser": "babel-eslint",
   "env": {
-    "browser": "true",
-    "node": "true",
-    "jest": "true"
+    "browser": true,
+    "node": true,
+    "jest": true
   },
   "extends": "airbnb",
   "settings": {
@@ -19,6 +19,8 @@
     "no-nested-ternary": [0],
     "function-paren-newline": [0],
     "object-curly-newline": [0],
-    "no-confusing-arrow": [0]
+    "no-confusing-arrow": [0],
+    "no-unused-vars": [0],
+    "react/jsx-filename-extension": [0]
   }
 }

@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import routes from './routes';
 import styled from 'styled-components';
 import 'normalize.css';
+import routes from './routes';
 import './App.css';
 
 const App = () => (
   <Router>
     <Container>
       {routes.map((route, index) => (
-        <Route key={index} path={route.path} component={route.component} />
+        <Route key={route.path} exact={route.exact} path={route.path} component={route.component} />
       ))}
     </Container>
   </Router>
